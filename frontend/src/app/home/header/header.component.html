@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-danger">
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 loi">
+            <img class="mr-4" src="../../../assets/img/logo.png" alt="anh" width="230px">
+            <li class="nav-item active">
+                <a class="nav-link mr-2" href="#">HOME</a>
+            </li>
+            <li class="nav-item active mr-2">
+                <a class="nav-link mr-2" routerLink="/home/product" >PRODUCTS</a>
+            </li>
+            <li class="nav-item active mr-2">
+                <a class="nav-link" href="#">BLOG</a>
+            </li>
+            <li class="nav-item active mr-2">
+                <a class="nav-link" routerLink="/home/cart" >CART</a>
+            </li>
+        </ul>
+        <ul class="mt-3">
+            <div class="timkiem" id="search-box">
+                <input class="pl-3" type="text" id="search-box__input" name="nameSearch" (change)="changeInput($event)" [value]="valueInput"
+                    placeholder="Search..">
+                <button id="search-box__btn" (click)="submitSearch()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </ul>
+        <ul class="navbar-nav ml-3">
+            <li class="nav-item dropdown the">
+                <a class="mr-3" id="dropdownId" data-toggle="dropdown"><img src="../../../assets/img/avatauser.jpg" alt="" width="50px"></a>
+                <div class="dropdown-menu chinh">
+                    <li>
+                        <h6 cDropdownHeader class="bg-light fw-semibold pl-3 py-2">Account</h6>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="/login">Signup</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="./" (click)="logout()">Lock Account</a>
+                    </li>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

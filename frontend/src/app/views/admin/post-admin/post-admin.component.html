@@ -1,0 +1,32 @@
+<div class="container">
+    <a href="/#/admin/read-admin" class="btn text-white btn-secondary">
+      <i class="fa-sharp fa-solid fa-arrow-left"></i>
+    </a>
+    <h3 class="text-capitalize my-5">Add New Admin</h3>
+    <form [formGroup]="adminFormPost" (ngSubmit)="handleSubmit()" >
+      <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" formControlName="name" class="form-control" id=""  placeholder="Enter name">
+        <div *ngIf="adminFormPost['controls']['name'].dirty && adminFormPost['controls']['name'].errors">
+          <div *ngIf="adminFormPost['controls']['name'].errors['required']" style="color: red;">name is require!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Email</label>
+        <input type="text" formControlName="email" class="form-control" id="" placeholder="Enter Email">
+        <div *ngIf="adminFormPost['controls']['email'].dirty && adminFormPost['controls']['email'].errors">
+          <div *ngIf="adminFormPost['controls']['email'].errors['required']" style="color: red; ">email is require!</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="" placeholder="Enter Password">
+        <div *ngIf="adminFormPost['controls']['password'].dirty && adminFormPost['controls']['password'].errors">
+          <div *ngIf="adminFormPost['controls']['password'].errors['required']" style="color: red;">password is require!</div>
+        </div>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary" [disabled]="!adminFormPost.valid">Submit</button>
+    </form>
+  </div>
+  

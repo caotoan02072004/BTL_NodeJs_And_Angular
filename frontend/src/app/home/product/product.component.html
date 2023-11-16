@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<main>
+    <div class="container">
+        <h2 class="text-center text-dark my-5">Featured Products</h2>
+    </div>
+    <div class="container">
+        <div class="row product__filter">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals" *ngFor="let item of data | paginate: {itemsPerPage: 9, currentPage: p} ">
+                <div class="product__item">
+                    <div >
+                        <div class="product__item__pic">
+                            <img src="{{item.image}}" alt="anh" width="80%" height="280px">
+                            <span class="label">Sale</span>
+                        </div>
+                        <div class="product__item__text ">
+                            <h6>{{item.name}}</h6>
+                            <div class="text-center">
+                                <a class="add-cart xucngay"><button class="btn-success buy" (click)="onAddToCart(item)">Buy Now +</button></a>
+                            </div>
+                            <div class="rating">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <h5>{{item.price}}</h5>
+                            <div class="product__color__select">
+                                <label for="pc-1">
+                                    <input type="radio" id="pc-1">
+                                </label>
+                                <label class="active black" for="pc-2">
+                                    <input type="radio" id="pc-2">
+                                </label>
+                                <label class="grey" for="pc-3">
+                                    <input type="radio" id="pc-3">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</main>
+
+<app-footer></app-footer>

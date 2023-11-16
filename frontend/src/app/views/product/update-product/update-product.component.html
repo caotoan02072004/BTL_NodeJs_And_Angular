@@ -1,0 +1,35 @@
+<div class="container">
+    <a href="/#/product/read-product" class="btn text-white btn-secondary">
+        <i class="fa-sharp fa-solid fa-arrow-left"></i>
+    </a>
+    <h3 class="text-capitalize my-5">Update Product</h3>
+    <form [formGroup]="productFormUpdate" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="" placeholder="Enter Name">
+            <div *ngIf="!productFormUpdate.controls.name.valid" style="color: red;">name is require!</div>
+        </div>
+        <div class="form-group">
+            <label for="">Price</label>
+            <input type="text" formControlName="price" class="form-control" id="" placeholder="Enter Price">
+            <div *ngIf="!productFormUpdate.controls.price.valid" style="color: red;">price is require!</div>
+        </div>
+        <div class="form-group">
+            <label for="">Sale_price</label>
+            <input type="text" formControlName="sale_price" class="form-control" id="" placeholder="Enter Saleprice">
+            <div *ngIf="!productFormUpdate.controls.sale_price.valid" style="color: red;">saleprice is require!</div>
+        </div>
+        <div class="form-group">
+            <label for="">Image</label>
+            <input type="text" formControlName="image" class="form-control" id="" placeholder="Enter Image">
+            <div *ngIf="!productFormUpdate.controls.image.valid" style="color: red;">image is require!</div>
+        </div>
+        <div class="form-group">
+            <label for="">CategoryId</label>
+            <input type="text" formControlName="category_id" class="form-control" id="" placeholder="Enter Image">
+            <div *ngIf="!productFormUpdate.controls.category_id.valid" style="color: red;">categoryId is require!</div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" [disabled]="!productFormUpdate.valid">Update</button>
+    </form>
+</div>

@@ -1,0 +1,53 @@
+<div class="container">
+    <a href="/#/product/read-product" class="btn text-white btn-back">
+        <i class="fa-sharp fa-solid fa-arrow-left"></i>
+    </a>
+    <h3 class="text-capitalize my-5">Add New Product</h3>
+    <form [formGroup]="productFormPost" (ngSubmit)="handleSubmit()">
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="" placeholder="Enter Name">
+            <div *ngIf="productFormPost['controls']['name'].dirty && productFormPost['controls']['name'].errors">
+                <div *ngIf="productFormPost['controls']['name'].errors['required']" style="color: red;">name is require!</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Price</label>
+            <input type="number" formControlName="price" class="form-control" id="" placeholder="Enter Price">
+            <div *ngIf="productFormPost['controls']['price'].dirty && productFormPost['controls']['price'].errors">
+                <div *ngIf="productFormPost['controls']['price'].errors['required']" style="color: red;">price is require!</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Sale_price</label>
+            <input type="number" formControlName="sale_price" class="form-control" id="" placeholder="Enter Saleprice">
+            <div *ngIf="productFormPost['controls']['sale_price'].dirty && productFormPost['controls']['sale_price'].errors">
+                <div *ngIf="productFormPost['controls']['sale_price'].errors['required']" style="color: red;">sale_price is require!</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">Image</label>
+            <input type="text" formControlName="image" class="form-control" id="" placeholder="Enter Image">
+            <div *ngIf="productFormPost['controls']['image'].dirty && productFormPost['controls']['image'].errors">
+                <div *ngIf="productFormPost['controls']['image'].errors['required']" style="color: red;">image is require!</div>
+            </div>
+        </div>
+    <div class="form-group">
+      <label for="">CategoryId</label>
+      <select formControlName="category_id" class="form-control">
+        <option value="">--choose--</option>
+        <option *ngFor="let c of cateId" value="{{c.id}}">{{c.name}}</option>
+      </select>
+      <!-- <div class="form-group">
+        <label for="">Status</label>
+        <br>
+        <input type="radio" formControlName="status" value="1" name="stt"> Hiển thị
+        <span class="mr-3"></span>
+        <input type="radio" formControlName="status" value="0" name="stt"> Tạm ẩn
+        <div *ngIf="!productFormPost.controls.status.valid" style="color: red;">status is require!</div>
+      </div> -->
+    </div>
+        <br>
+        <button type="submit" class="btn btn-primary" [disabled]="!productFormPost.valid">Submit</button>
+    </form>
+</div>

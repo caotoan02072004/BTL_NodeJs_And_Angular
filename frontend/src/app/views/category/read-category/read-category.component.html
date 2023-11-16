@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <div>
+      <a href="/#/category/post-category" class="btn btn-success text-white btn-add">Add New +</a>
+      <button class="btn btn-info ml-3 text-white btn-add" (click)="reset()">Reset</button>
+    </div>
+    <form [formGroup]="categoryFormSearch" (ngSubmit)="submitSearch()" action="">
+      <div id="search-box">
+        <input type="text" id="search-box__input" formControlName="name" placeholder="Search..">
+        <button type="submit" id="search-box__btn">
+         <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+  <h3 class="my-5">Category Management</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>CodeId</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data | paginate: {itemsPerPage: 5, currentPage: p}">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.status}}</td>
+        <td class="chinh">
+          <a href="javascript:void();" class=" btn btn-success" (click)="onEditCategory(item.id)">Sửa</a>
+          <a href="javascript:void();" class=" btn btn-dark" (click)="onDeleteCategory(item.id)">Xóa</a>
+        </td>
+      </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </table>
+</div>

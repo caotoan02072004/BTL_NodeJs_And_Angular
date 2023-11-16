@@ -1,0 +1,33 @@
+nav{
+    padding-left: 15px;
+    color: white;
+}
+.the img{
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.loi li a:hover{
+    color: #fff;
+}
+
+.timkiem{
+    display: flex;
+}
+.timkiem input{
+    border: none;
+    border: 1px solid #333;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  .timkiem button{
+    width: 17%;
+    height: 51px;
+    margin-left: 5px;
+    border-radius: 10px;
+  }
+.chinh{
+    left: -112px;
+    margin-top: 5px;
+}

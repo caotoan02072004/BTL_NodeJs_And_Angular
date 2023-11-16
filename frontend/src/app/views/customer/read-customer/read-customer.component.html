@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <div>
+            <button class="btn btn-info ml-3 text-white btn-add" (click)="reset()">Reset</button>
+        </div>
+        <div id="search-box">
+            <input type="text" id="search-box__input" (change)="changeInput($event)" [value]="valueInput"
+                placeholder="Search..">
+            <button id="search-box__btn" (click)="submitSearch()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+    </div>
+    <h3 class="my-5">Customer Management</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CodeId</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data | paginate: {itemsPerPage: 5, currentPage: p}">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.password}}</td>
+                <td class="chinh">
+                    <a href="javascript:void();" class=" btn btn-dark" (click)="onDelete(item.id)">Xóa</a>
+                </td>
+            </tr>
+        </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+</div>
